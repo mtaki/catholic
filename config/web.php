@@ -6,18 +6,21 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'components' => [
+	'modules' => [
+        'setting' => [
+            'class' => 'app\modules\setting\Setting',
+           ],
+		],
 	
+    'components' => [
 	'urlManager' => [
             'enablePrettyUrl' => true,
             'enableStrictParsing' => false,
             'showScriptName' => false,
             'rules' => [
-                [
-		
-                   
-		 'class' => 'yii\rest\UrlRule', 
-                    'controller' => ['book','users','companysetup','country'],
+                [        
+				'class' => 'yii\rest\UrlRule', 
+                    'controller' => ['jimbo'],
                 ],
             ],
         ], 
