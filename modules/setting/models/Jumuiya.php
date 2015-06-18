@@ -34,7 +34,7 @@ class Jumuiya extends \yii\db\ActiveRecord
     {
         return [
             [['start_date', 'end_date'], 'safe'],
-            [['jumuiya_name'], 'string', 'max' => 100],
+            [['jumuiya_name','parokia_id'], 'string', 'max' => 100],
             [['comment'], 'string', 'max' => 45]
         ];
     }
@@ -50,6 +50,7 @@ class Jumuiya extends \yii\db\ActiveRecord
             'start_date' => 'Start Date',
             'end_date' => 'End Date',
             'comment' => 'Comment',
+            'parokia_id' => 'Parokia',
         ];
     }
 
@@ -59,6 +60,7 @@ class Jumuiya extends \yii\db\ActiveRecord
     public function getJumuiyaLeaders()
     {
         return $this->hasMany(JumuiyaLeader::className(), ['jumuiya_id' => 'id']);
+		return $this->belongTO(Parokia::className(), ['id' => 'parokia_id']);
     }
 
     /**

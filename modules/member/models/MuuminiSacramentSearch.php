@@ -1,16 +1,16 @@
 <?php
 
-namespace app\modules\setting\Models;
+namespace app\modules\member\Models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\modules\setting\Models\Jumuiya;
+use app\modules\member\Models\MuuminiSacrament;
 
 /**
- * JumuiyaSearch represents the model behind the search form about `app\modules\setting\Models\Jumuiya`.
+ * MuuminiSacramentSearch represents the model behind the search form about `app\modules\member\Models\MuuminiSacrament`.
  */
-class JumuiyaSearch extends Jumuiya
+class MuuminiSacramentSearch extends MuuminiSacrament
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class JumuiyaSearch extends Jumuiya
     public function rules()
     {
         return [
-            [['id','parokia_id'], 'integer'],
-            [['jumuiya_name', 'start_date', 'end_date', 'comment'], 'safe'],
+            [['id', 'msharika_id', 'sacrament_service_id'], 'integer'],
+            [['place', 'year_issued', 'description'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class JumuiyaSearch extends Jumuiya
      */
     public function search($params)
     {
-        $query = Jumuiya::find();
+        $query = MuuminiSacrament::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -57,12 +57,13 @@ class JumuiyaSearch extends Jumuiya
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'start_date' => $this->start_date,
-            'end_date' => $this->end_date,
+            'msharika_id' => $this->msharika_id,
+            'sacrament_service_id' => $this->sacrament_service_id,
         ]);
 
-        $query->andFilterWhere(['like', 'jumuiya_name', $this->jumuiya_name])
-            ->andFilterWhere(['like', 'comment', $this->comment]);
+        $query->andFilterWhere(['like', 'place', $this->place])
+            ->andFilterWhere(['like', 'year_issued', $this->year_issued])
+            ->andFilterWhere(['like', 'description', $this->description]);
 
         return $dataProvider;
     }

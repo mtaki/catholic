@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\setting\Models\Parokia */
+/* @var $model app\modules\member\Models\MuuminiHuduma */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Parokias'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Muumini Hudumas'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="parokia-view">
+<div class="muumini-huduma-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -29,10 +29,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'parokia',
-            'catholic_name',
+            'huduma_id',
+            'msharika_id',
             'start_date',
-            'jimbo.jimbo_name',
         ],
     ]) ?>
 

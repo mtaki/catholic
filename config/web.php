@@ -10,6 +10,9 @@ $config = [
         'setting' => [
             'class' => 'app\modules\setting\Setting',
            ],
+		   'member' => [
+            'class' => 'app\modules\member\Member',
+           ],
 		],
 	
     'components' => [

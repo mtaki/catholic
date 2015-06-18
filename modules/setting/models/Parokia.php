@@ -59,6 +59,7 @@ class Parokia extends \yii\db\ActiveRecord
     public function getJimbo()
     {
         return $this->hasOne(Jimbo::className(), ['id' => 'jimbo_id']);
+        return $this->hasMany(Jumuiya::className(), ['id' => 'parokia_id']);
     }
 
     /**

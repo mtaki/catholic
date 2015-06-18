@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\modules\setting\Models\ParokiaSearch */
+/* @var $searchModel app\modules\member\Models\MuuminiSacramentSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Parokias');
+$this->title = Yii::t('app', 'Muumini Sacraments');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="parokia-index">
+<div class="muumini-sacrament-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Parokia'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Create Muumini Sacrament'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -25,11 +25,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-           // 'id',
-            'parokia',
-            'catholic_name',
-            'start_date',
-            'jimbo.jimbo_name',
+            'id',
+            'msharika_id',
+            'sacrament_service_id',
+            'place',
+            'year_issued',
+            // 'description',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
